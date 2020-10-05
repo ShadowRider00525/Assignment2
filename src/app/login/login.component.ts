@@ -28,15 +28,6 @@ export class LoginComponent implements OnInit {
       if(data.valid == true){
         this.newuser = new User(data.username,data.email, data.pass,data.role)
         sessionStorage.setItem('currentUser',JSON.stringify(this.newuser));
-        if(this.newuser.role == "Group Assistant"){
-          this.router.navigate(['/chat']);
-        }
-        if(this.newuser.role == "Group Admin"){
-          this.router.navigate(['groupadminchat']);
-        }
-        if(this.newuser.role == "Super User"){
-          this.router.navigate(['superuserchat']);
-        }
       }
       else{
         this.errormsg = "Incorrect Credentials"
@@ -46,10 +37,5 @@ export class LoginComponent implements OnInit {
       }
       console.log(data);
       })
-  }
-  logOut(){
-    sessionStorage.clear();
-    this.router.navigate(['/login']);
-
   }
 }
