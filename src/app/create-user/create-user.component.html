@@ -1,0 +1,15 @@
+<h1>Create User</h1>
+<div class="create">
+    <form id="createuser">
+        <label for="username">Username: </label> <br>
+        <input type="text" [(ngModel)]="username" name ="username"/> <br>
+        <label for="email">Email: </label><br>
+        <input type="email" [(ngModel)]="email" name="email"/><br>
+        <label for="pass">Password: </label> <br>
+        <input type="password" [(ngModel)]="pass" name="pass"/> <br>
+        <label for="role">Role: </label><br>
+        <input type="text" [(ngModel)]="role" name="role"/> <br>
+        <button (click)="createUser()">Create</button>
+        <div id="errormsg">{{errormsg}}</div>
+    </form>
+</div>
