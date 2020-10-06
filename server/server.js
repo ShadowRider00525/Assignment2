@@ -26,7 +26,7 @@ MongoClient.connect(url, {poolSize:10,useNewUrlParser: true,useUnifiedTopology: 
         const dbName = 'mydb';
         const db = client.db(dbName);
         console.log("Database Created");
-        console.log(db.databaseName);
+        //Sconsole.log(db.databaseName);
         db.collection('users').drop(function(err, delOK){
             if (err) {return console.log(err)}
             if (delOK) console.log('Collection Deleted');
@@ -43,7 +43,7 @@ MongoClient.connect(url, {poolSize:10,useNewUrlParser: true,useUnifiedTopology: 
         ];
         db.collection('users').insertMany(myobj, function(err, res){
             if (err) {return console.log(err)}
-            console.log(res.insertedCount);
+            //console.log(res.insertedCount);
             
         });
 
