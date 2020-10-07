@@ -1,27 +1,28 @@
 # Assignment2
+## Documentation
+## Git Organization
+`For my Git Repository I made (number) of commits. Each commit is realted to a file or folder that was either added or changed.`
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.3.
+## Data Structures
+* The users are stored in an object on the Mongo Client and then called when the user logs in. That is the only functionality that the mongodb has.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Angular Architecture
+`Communication`
+* On the front-end side the REST API is used to POST the url's when a user is logged in.
+* On the back-end however the rest api is used to call the api-login route which allows users to login.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+`Components`
+* In the chat component, angular is used to store the logged in users messages, as well as display the chat messages between users. 
 
-## Build
+* In the login component, angular is used to grab the users log in username and password, run them against information in the database and if the input data is equal to a match it allows the user to be redirected to the chat page.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+* In the profile component, angular is used to grab the users stored username, email and role, the page then allows the user to update there role and email.
 
-## Running unit tests
+* In the app component, angular is used for redirecting the users and for loging out which deletes the users stored messages and information.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Interaction Details
+`The server interacts with the client through the server.js. If the server.js and mongodb services aren't running then the user authentication would fail and the application wouldn't work without making major changes.`
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+`The only gobal variables that get "changed" is the PORT number on the server side, since we launch the app in 4200 where as the server itself get ran in port 3000. The reason for this is so that there aren't any issues running the server and client.`
