@@ -1,5 +1,5 @@
 import { AppPage } from './app.po';
-import { browser, logging } from 'protractor';
+import { browser, logging, by, element } from 'protractor';
 
 describe('workspace-project App', () => {
   let page: AppPage;
@@ -10,14 +10,25 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('Assignment2 app is running!');
+    browser.waitForAngularEnabled(false);
+    expect(page.getTitleText()).toEqual('Assignment2');
   });
 
-  afterEach(async () => {
-    // Assert that there are no errors emitted from the browser
-    const logs = await browser.manage().logs().get(logging.Type.BROWSER);
-    expect(logs).not.toContain(jasmine.objectContaining({
-      level: logging.Level.SEVERE,
-    } as logging.Entry));
+  it('should display sent message', () => {
+    page.navigateTo();
+    browser.waitForAngularEnabled(false);
+    var messageinput = element(by.id('messagecontent'));
+    var chatbtn = element(by.id('chatbtn'));
+    messageinput.sendKeys('test-message');
+    page.clickabutton(chatbtn);
+    browser.driver.sleep(1000);
+    var listitems = element.all(by.css('li'));
+      expect(listitems.get(0).getText()).toEqual('test-message');
   });
+
+  it('log user', () =>{
+    page.navigateTo();
+    browser.waitForAngularEnabled(false);
+    
+  })
 });
