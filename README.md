@@ -1,7 +1,7 @@
 # Assignment2
 ## Documentation
 ## Git Organization
-`For my Git Repository I made (number) of commits. Each commit is realted to a file or folder that was either added or changed.`
+`For my Git Repository I made 11 of commits. Each commit is realted to a file or folder that was either added or changed.`
 
 ## Data Structures
 * The users are stored in an object on the Mongo Client and then called when the user logs in. That is the only functionality that the mongodb has.
