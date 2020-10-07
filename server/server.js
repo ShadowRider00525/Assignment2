@@ -26,27 +26,9 @@ MongoClient.connect(url, {poolSize:10,useNewUrlParser: true,useUnifiedTopology: 
         const dbName = 'mydb';
         const db = client.db(dbName);
         console.log("Database Created");
-        //Sconsole.log(db.databaseName);
-        db.collection('users').drop(function(err, delOK){
-            if (err) {return console.log(err)}
-            if (delOK) console.log('Collection Deleted');
-        })
-
-        db.createCollection('users', function(err,res){
-            if (err) {return console.log(err)}
-            console.log("Collection Created");
-        });
-        var myobj = [
-            {username:'tim09', email:'tim@a.org',pass:'123', role:'Super User'},
-            {username:'bob21',email:'bob@a.org',pass:'123',role:'Group Admin'},
-            {username:'steve68',email:'steve@a.org',pass:'123',role:'Group Assisstant'}
-        ];
-        db.collection('users').insertMany(myobj, function(err, res){
-            if (err) {return console.log(err)}
-            //console.log(res.insertedCount);
-            
-        });
+        //console.log(db.databaseName);
+        require('./routes/api-user.js')(db,app);
 
 });
 
-//require('./routes/api-login.js')(app,path);
+require('./routes/api-login.js')(app,path);

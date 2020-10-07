@@ -1,4 +1,6 @@
+import { Message } from '@angular/compiler/src/i18n/i18n_ast';
 import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router";
 import { SocketService } from '../services/socket.service';
 import { User } from '../user';
 
@@ -14,8 +16,9 @@ export class ChatComponent implements OnInit {
   username:string = '';
   errormsg = '';
   newuser:User;
+  newmessage:Message;
 
-  constructor(private socketService:SocketService) { }
+  constructor(private socketService:SocketService,private router:Router) { }
 
   ngOnInit(){
     this.newuser = JSON.parse(sessionStorage.getItem('currentUser'));
@@ -29,8 +32,9 @@ export class ChatComponent implements OnInit {
     this.ioConnection = this.socketService.onMessage()
     .subscribe((message:string) => {
       this.messages.push(message);
+      sessionStorage.setItem('userMessage',JSON.stringify(this.messages)); 
     });
-  }  
+  };  
 
   public chat(){
     if(this.messagecontent){
@@ -39,6 +43,12 @@ export class ChatComponent implements OnInit {
     }else{
       console.log('no message');
     }
-  }
+  };
+
+  
+  addUser(){
+    this.router.navigate(['/create-user']);
+  };
+
 }
 

@@ -15,6 +15,5 @@ export class AppComponent {
   logOut(){
     sessionStorage.clear();
     this.router.navigate(['/login']);
-
   }
 }

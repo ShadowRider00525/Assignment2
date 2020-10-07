@@ -28,12 +28,13 @@ export class LoginComponent implements OnInit {
       if(data.valid == true){
         this.newuser = new User(data.username,data.email, data.pass,data.role)
         sessionStorage.setItem('currentUser',JSON.stringify(this.newuser));
+        this.router.navigate(['/chat']);
       }
       else{
-        this.errormsg = "Incorrect Credentials"
+        this.errormsg = "Incorrect Credentials, try again"
       }
       error =>{
-        this.errormsg = "Incorrect Credentials"
+        this.errormsg = "Incorrect Credentials, try again"
       }
       console.log(data);
       })
