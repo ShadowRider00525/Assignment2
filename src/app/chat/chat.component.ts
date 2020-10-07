@@ -44,11 +44,5 @@ export class ChatComponent implements OnInit {
       console.log('no message');
     }
   };
-
-  
-  addUser(){
-    this.router.navigate(['/create-user']);
-  };
-
 }
 

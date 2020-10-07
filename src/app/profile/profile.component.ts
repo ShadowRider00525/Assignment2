@@ -32,6 +32,5 @@ export class ProfileComponent implements OnInit {
       this.newuser.role = this.role;
       sessionStorage.setItem('currentUser',   JSON.stringify(this.newuser));
     }
-  }
-
+  } 
 }

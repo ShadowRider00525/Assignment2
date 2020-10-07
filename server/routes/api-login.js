@@ -1,6 +1,8 @@
 module.exports = function(app){
     app.post('/api/auth', function(req, res){
-        let users = [{'username':'steve67','email':'steve@com','pass':'321','role':'Group Assistant'},{'username':'bob21', 'email':'bob@com','pass':'321','role':'Group Admin'},{'username':'tim09','email':'timmy@com','pass':'321','role':'Super User'}]
+        let users = [{username:'tim09', email:'tim@a.org',pass:'123', role:'Super User'},
+        {username:'bob21',email:'bob@a.org',pass:'123',role:'Group Admin'},
+        {username:'steve68',email:'steve@a.org',pass:'123',role:'Group Assisstant'}]
     
         if(!req.body){
             return res.sendStatus(400)
