@@ -1,0 +1,12 @@
+<h1>Profile Page for {{email}}</h1>
+<body>
+    <div id="updatedetails">
+        <form id="updateform">
+            <label for="email">Email: </label> <br>
+            <input type="text" id="email" [(ngModel)]="email" name ="email"/> <br>
+            <label for="role">Role: </label> <br>
+            <input type="text" id="role" [(ngModel)]="role" name="role"/> <br>
+            <button (click)="updateItem()">Update</button>
+        </form>
+    </div>
+</body>

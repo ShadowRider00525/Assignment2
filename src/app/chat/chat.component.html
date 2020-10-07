@@ -1,22 +1,24 @@
-<div class='container'>
-    <form>
-        <div class ='form-group'>
-            <label for="messagecontent">Chat</label><br>
-            <input type = 'text' [(ngModel)]="messagecontent"
-            name ="messagecontent" id="messagecontent" class="form-control"/>
+<h1>Chat</h1>
+<body>
+    <div class='container'>
+        <form>
+            <div class ='form-group'>
+                <input type = 'text' [(ngModel)]="messagecontent"
+                name ="messagecontent" id="messagecontent" class="form-control"/>
+            </div><br>
+            <div class ='form-group'>
+                <button class="btn btn-primary" (click)="chat()">Send Message</button>
+            </div>
+        </form>
+
+        <div class="chat-message">
+            <h3>Messages</h3>
+            {{username}} : <ul *ngFor='let message of messages'>{{username}} said {{message}}</ul>
         </div><br>
-        <div class ='form-group'>
-            <button class="btn btn-primary" (click)="chat()">Send Message</button>
+
+        <div class="buttons">
+            <button class="btn btn-primary" (click)="addUser()">Add User</button>
         </div>
-    </form>
-
-    <div class="chat-message">
-        <h3>Messages</h3>
-        {{username}} : <ul *ngFor='let message of messages'>{{message}}</ul>
-    </div><br>
-
-    <div class="buttons">
-        <button class="btn btn-primary" (click)="addUser()">Add User</button>
+    
     </div>
-   
-</div>
+</body>
